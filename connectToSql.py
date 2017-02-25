@@ -1,6 +1,6 @@
 import pyodbc
 
-print("I reached here")
+#print("I reached here")
 #con = pyodbc.connect("DRIVER={SQL Server};server=//CHRISTO-ADMIN\SQLEXPRESS;port=1433;database=sftodbexample;uid=chris;pwd=PraiseLord77")
 
 theserver = "//CHRISTO-ADMIN\SQLEXPRESS:1433"
