@@ -15,7 +15,7 @@ connectToSql.con.commit()
 cur.execute("select myid,myname,myage,mycity from dbo.mydummytable")
 for row in cur:
     print(row.myid , "," , row.myname)
-    #print row[0] + "," + row[1]
+
 
 cur.close()
 connectToSql.con.close()
