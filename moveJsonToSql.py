@@ -22,18 +22,16 @@ with open('lease.json') as data_file:
 #    if value == 3396933746077368191:
 #        print(item['currentVehicleVin'], item['customerNumber'])
 
-#pprint(data[0])
 
+# Establish connection with SQL Server
 Connectvar = connectToSql.ConnectToSql
-
 Connectvar.connect(Connectvar)
+
+# Insert all the values from JSON object into SQL Server: Executed only once
 Connectvar.insertValues(Connectvar,data)
 
-#cur.execute("select myid,myname,myage,mycity from dbo.mydummytable")
-#for row in cur:
-#    print(row.myid , "," , row.myname)
 
-#cur.close()
+#close the connection
 Connectvar.con.close()
 
 # Maybe we could check the file size
