@@ -293,21 +293,18 @@ class ConnectToSql():
                 series3 = Series.from_csv('charts\ForecastCharts1\Forecast3.csv', sep=',', header=0)
                 print(series3.head())
                 series3.plot()
-                # pyplot.show()
                 savefig('charts\ForecastCharts1\chart3.png')
 
             if r == 4:
                 series4 = Series.from_csv('charts\ForecastCharts1\Forecast4.csv', sep=',', header=0)
                 print(series4.head())
                 series4.plot()
-                # pyplot.show()
                 savefig('charts\ForecastCharts1\chart4.png')
 
             if r == 5:
                 series5 = Series.from_csv('charts\ForecastCharts1\Forecast5.csv', sep=',', header=0)
                 print(series5.head())
                 series5.plot()
-                # pyplot.show()
                 savefig('charts\ForecastCharts1\chart5.png')
 
             if r == 6:
@@ -321,7 +318,6 @@ class ConnectToSql():
                 series7 = Series.from_csv('charts\ForecastCharts1\Forecast7.csv', sep=',', header=0)
                 print(series7.head())
                 series7.plot()
-                # pyplot.show()
                 savefig('charts\ForecastCharts1\chart7.png')
 
             if r == 8:
