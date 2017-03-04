@@ -17,10 +17,11 @@ class ConnectToSql():
     theuser = "chris"
     thepassword="PraiseLord77"
 
+    # Method to connect to SQL Server
     def connect(self):
         self.con=pyodbc.connect('DRIVER={SQL Server};SERVER=CHRISTO-ADMIN\SQLEXPRESS;PORT=1433;DATABASE=sftodbexample;UID=chris;PWD=PraiseLord77')
 
-
+    # Loop through the data resultset object and insert into SQL Server table named [dbo].[Vehicle_Sales_Table]
     def insertValues(self,data):
         cur = self.con.cursor()
         for item in data:
@@ -31,6 +32,7 @@ class ConnectToSql():
         print('Value inserted!')
         cur.close()
 
+    # Method to test Connection from other py files
     def testConnection(self):
         cur = self.con.cursor()
         cur.execute("select * from [sftodbexample].[dbo].[mydummytable]")
@@ -39,7 +41,7 @@ class ConnectToSql():
             print(row.myname, row.mycity)
         cur.close()
 
-
+    # Method to extract data from SQL Server based on the query passed to it
     def getData(self,reportType):
         cur = self.con.cursor()
         if reportType == 'totalSalesdata':
@@ -53,6 +55,7 @@ class ConnectToSql():
         cur.close()
         return rows
 
+    # Method to dispay Line charts for each dealer ship based on Dealer ID
     def displayLineChart(self,distid,totals,dates,charttxt):
         l1 = []
         l2 = []
@@ -79,14 +82,14 @@ class ConnectToSql():
         line_chart.render_to_png(file_name)
 
 
-
+    # Method to extract the next item from the rows list
     def getNextItem(self,rows,r):
         if rows.index(r) != len(rows) - 1:
             next_item = rows[rows.index(r) + 1]
             return next_item[0]
 
 
-
+    # Method to display raw nos from the resultset list
     def displayRawNumbers(self,resulset,txt,charttxt):
         distid =[]
         totals =[]
@@ -253,7 +256,7 @@ class ConnectToSql():
                     totals.clear()
                     dates.clear()
 
-
+    # Method to plot Forecast charts and export in PNG format
     def displayForecastCharts(self,distid,totals,dates,charttxt):
         l1 = []
         l2 = []
@@ -452,31 +455,10 @@ class ConnectToSql():
                 series29.plot()
                 # pyplot.show()
                 savefig('charts\ForecastCharts1\chart29.png')
-        #for r in l3:
-            #for r1 in r:
-                #st = str(r1)
-                #st = st.replace('-', '/')
-                # stint = int(st)
-                #sdate = pd.date = pd.to_datetime(r1, format='%Y-%m-%d')
-                #stdate = str(sdate)
-                #dt = datetime.strptime(stdate, '%Y-%m-%d %H:%M:%S')
-        #         l4.append(stime)
-        #
-        #
-        # if charttxt == 'q1':
-        #     file_name = 'charts/ForecastCharts1/chart' + str(l1[0][0]) + '.png'
-        # if charttxt == 'q2':
-        #     file_name = 'charts/ForecastCharts2/chart' + str(l1[0][0]) + '.png'
-        # if charttxt == 'q3':
-        #     file_name = 'charts/ForecastCharts3/chart' + str(l1[0][0]) + '.png'
-        # series = Series.from_array(l2, l4)
-        # print(series.head())
-        # series.plot()
-        # savefig(file_name)
 
 
 
-
+    # Method to display Raw nos for from Pandas Forecasting
     def displayForecastNumbers(self,resulset,txt,charttxt):
         distid =[]
         totals =[]
