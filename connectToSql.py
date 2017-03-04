@@ -257,6 +257,7 @@ class ConnectToSql():
                     dates.clear()
 
     # Method to plot Forecast charts and export in PNG format
+    # A failure in feeding lists to Series class forced us to export data from SQL Server to CSV. One for each dealer.
     def displayForecastCharts(self,distid,totals,dates,charttxt):
         l1 = []
         l2 = []
